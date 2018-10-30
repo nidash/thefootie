@@ -14,29 +14,32 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 class LeagueController extends ApiController {
+
   /**
    * Show all entities (maybe add limit and pagination later).
    * @Route("/leagues", methods={"GET"}, name="league_index")
    */
-  public function list() :JsonResponse {
+  public function list(): JsonResponse {
     $repository = $this->getDoctrine()->getRepository(League::class);
     $data['data'] = $repository->getLeagues();
     // Return JSON response.
-    return $this->sendResponse($data,JsonResponse::HTTP_OK);
+    return $this->sendResponse($data, JsonResponse::HTTP_OK);
   }
 
   /**
    * Show an entity.
    * @Route("/leagues/{id}", methods={"GET"}, name="league_show")
+   *
    * @param int $id
+   *
    * @return \Symfony\Component\HttpFoundation\JsonResponse
    */
-  public function show(int $id)   {
+  public function show(int $id) {
     $repository = $this->getDoctrine()->getRepository(League::class);
     // Get league by id.
     $data['data'] = $repository->getLeague($id);
     $status = JsonResponse::HTTP_OK;
-    if(! $data['data']) {
+    if (!$data['data']) {
       // Helpful to return why you got 404, this is different
       // from client sending a wrong URI for eg.
       $data['data'] = 'Id not present';
@@ -65,7 +68,9 @@ class LeagueController extends ApiController {
   /**
    * Delete entity.
    * @Route("/leagues/{id}", methods={"DELETE"}, name="league_delete")
+   *
    * @param int $id
+   *
    * @return \Symfony\Component\HttpFoundation\JsonResponse
    * @throws \Doctrine\ORM\ORMException
    */
@@ -79,7 +84,9 @@ class LeagueController extends ApiController {
   /**
    * Update existing entity.
    * @Route("/leagues/{id}", methods={"PUT|PATCH"}, name="league_edit")
+   *
    * @param int $id
+   *
    * @return \Symfony\Component\HttpFoundation\JsonResponse
    * @throws \Doctrine\ORM\ORMException
    */

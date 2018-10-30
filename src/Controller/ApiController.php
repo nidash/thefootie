@@ -18,7 +18,7 @@ class ApiController extends Controller {
    *
    * @return \Symfony\Component\HttpFoundation\JsonResponse
    */
-  public function sendResponse(array $data, int $status)   {
+  public function sendResponse(array $data, int $status) {
     $response = $this->json($data, $status);
     $response->headers->set('Content-Type', 'application/json');
     // Return JSON response.

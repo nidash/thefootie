@@ -2,8 +2,10 @@ version: "3"
 services:
   mysql:
     image: mysql:5.7
+    volumes:
+      - ./thefootie.sql:/docker-entrypoint-initdb.d/thefootie.sql #create testing db ad populate with data.
     ports:
-      - 3306:3306
+      - ${PORT}:3306
     command: --innodb-buffer-pool-size=500M --max_allowed_packet=32M
     environment:
     - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}

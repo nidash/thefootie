@@ -5,29 +5,31 @@ namespace App\Repository;
 use App\Entity\Team;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
- * @method Team|null find($id, $lockMode = null, $lockVersion = null)
- * @method Team|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Team|null find($id, $lockMode = NULL, $lockVersion = NULL)
+ * @method Team|null findOneBy(array $criteria, array $orderBy = NULL)
  * @method Team[]    findAll()
- * @method Team[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Team[]    findBy(array $criteria, array $orderBy = NULL, $limit = NULL, $offset = NULL)
  */
-class TeamRepository extends ServiceEntityRepository
-{
+class TeamRepository extends ServiceEntityRepository {
+
   private $validator;
 
-  public function __construct(RegistryInterface $registry, ValidatorInterface $validator)
-  {
+  public function __construct(
+    RegistryInterface $registry,
+    ValidatorInterface $validator
+  ) {
     parent::__construct($registry, Team::class);
     $this->validator = $validator;
   }
 
-  public function getTeams()
-  {
+  public function getTeams() {
     // Get all Teams.
     $teams = $this->findAll();
-    $results = array();
+    $results = [];
     foreach ($teams as $team) {
       $results[] = $this->getTeam($team->getId());
     }
@@ -38,9 +40,13 @@ class TeamRepository extends ServiceEntityRepository
   public function getTeam(int $id) {
     // Find by Id.
     $team = $this->find($id);
-    $results = array();
+    $results = [];
     if ($team) {
-      $results = array('id' => $team->getId(), 'name' => $team->getName(), 'strip' => $team->getStrip());
+      $results = [
+        'id' => $team->getId(),
+        'name' => $team->getName(),
+        'strip' => $team->getStrip(),
+      ];
     }
     // Return Array.
     return $results;
@@ -57,8 +63,7 @@ class TeamRepository extends ServiceEntityRepository
    * @throws \Doctrine\ORM\ORMException
    * @throws \Doctrine\ORM\OptimisticLockException
    */
-  public function save($data, Team $team = null)
-  {
+  public function save($data, Team $team = NULL) {
     // Status for update
     $response['status'] = JsonResponse::HTTP_OK;
 
@@ -71,20 +76,18 @@ class TeamRepository extends ServiceEntityRepository
 
     $response['data'] = '';
 
-    if (isset($data['name']))
-    {
+    if (isset($data['name']) && isset($data['strip'])) {
       $team->setName($data['name']);
       $team->setStrip($data['strip']);
 
       // Validate
       $errors = $this->validator->validate($team);
 
-      if (is_object($errors) && count($errors) > 0)
-      {
+      if (is_object($errors) && count($errors) > 0) {
         $formattedErrors = [];
         foreach ($errors as $error) {
           $formattedErrors[$error->getPropertyPath()] = [
-            'error' => $error->getMessage()
+            'error' => $error->getMessage(),
           ];
         }
         // Update/Create failed, send 409
@@ -111,6 +114,7 @@ class TeamRepository extends ServiceEntityRepository
 
   /**
    * Delete record and return a response for api.
+   *
    * @param $id
    *
    * @return mixed

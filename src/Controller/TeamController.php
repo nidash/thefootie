@@ -7,31 +7,33 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 
-class TeamController extends ApiController
-{
+class TeamController extends ApiController {
+
   /**
    * Show all entities (maybe add limit and pagination later).
    * @Route("/teams", methods={"GET"}, name="team_index")
    */
-  public function list() :JsonResponse {
+  public function list(): JsonResponse {
     $repository = $this->getDoctrine()->getRepository(Team::class);
     $data['data'] = $repository->getTeams();
     // Return JSON response.
-    return $this->sendResponse($data,JsonResponse::HTTP_OK);
+    return $this->sendResponse($data, JsonResponse::HTTP_OK);
   }
 
   /**
    * Show an entity.
    * @Route("/teams/{id}", methods={"GET"}, name="team_show")
+   *
    * @param int $id
+   *
    * @return \Symfony\Component\HttpFoundation\JsonResponse
    */
-  public function show(int $id)   {
+  public function show(int $id) {
     $repository = $this->getDoctrine()->getRepository(Team::class);
     // Get Team by id.
     $data['data'] = $repository->getTeam($id);
     $status = JsonResponse::HTTP_OK;
-    if(! $data['data']) {
+    if (!$data['data']) {
       // Helpful to return why you got 404, this is different
       // from client sending a wrong URI for eg.
       $data['data'] = 'Id not present';
@@ -60,7 +62,9 @@ class TeamController extends ApiController
   /**
    * Delete entity.
    * @Route("/teams/{id}", methods={"DELETE"}, name="team_delete")
+   *
    * @param int $id
+   *
    * @return \Symfony\Component\HttpFoundation\JsonResponse
    * @throws \Doctrine\ORM\ORMException
    */
@@ -74,7 +78,9 @@ class TeamController extends ApiController
   /**
    * Update existing entity.
    * @Route("/teams/{id}", methods={"PUT|PATCH"}, name="team_edit")
+   *
    * @param int $id
+   *
    * @return \Symfony\Component\HttpFoundation\JsonResponse
    * @throws \Doctrine\ORM\ORMException
    */
