@@ -7,15 +7,18 @@ jobs:
   build:
     docker:
     # specify the version you desire here
-    - image: circleci/7.2-apache-node-browsers-legacy
+    - image: circleci/php:7.2-cli
+#      environment:
+#        APP_ENV: test
+#        DATABASE_URL: mysql://footie_user:footie_pw@127.0.0.1:3306/footie
 
     # Specify service dependencies here if necessary
     # CircleCI maintains a library of pre-built images
     # documented at https://circleci.com/docs/2.0/circleci-images/
-    - image: circleci/mysql:9.4
+    - image: circleci/mysql:5.7
       environment:
         MYSQL_ROOT_PASSWORD: my-secret-pw
-        MYSQL_DATABASE: footie_testing
+        MYSQL_DATABASE: footie
         MYSQL_USER: footie_user
         MYSQL_PASSWORD: footie_pw
 
@@ -23,7 +26,7 @@ jobs:
 
     steps:
     - checkout
-
+    - run: sudo docker-php-ext-install pdo_mysql
     # Download and cache dependencies
     - restore_cache:
         keys:
@@ -39,6 +42,7 @@ jobs:
         key: v1-dependencies-{{ checksum "composer.json" }}
 
     # run tests!
+    - run: mv .env.dist .env
     - run: ./bin/console doctrine:migrations:execute 20181026113305 -n
     - run: ./bin/console doctrine:fixtures:load -n
-    - run: ./bin/phpunit
+    - run: ./bin/phpunit -c phpunit-ci.xml
