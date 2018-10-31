@@ -39,6 +39,6 @@ jobs:
         key: v1-dependencies-{{ checksum "composer.json" }}
 
     # run tests!
-    - run: ./bin/console doctrine:migrations:execute 20181026113305 -n
-    - run: ./bin/console doctrine:fixtures:load -n
+    - run: ./bin/console doctrine:migrations:execute 20181026113305 -n  --env=test
+    - run: ./bin/console doctrine:fixtures:load -n --env=test
     - run: ./bin/phpunit
