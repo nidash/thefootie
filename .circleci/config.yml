@@ -14,10 +14,10 @@ jobs:
     # documented at https://circleci.com/docs/2.0/circleci-images/
     - image: circleci/mysql:9.4
       environment:
-      MYSQL_ROOT_PASSWORD:my-secret-pw
-      MYSQL_DATABASE:footie_testing
-      MYSQL_USER:footie_user
-      MYSQL_PASSWORD:footie_pw
+        MYSQL_ROOT_PASSWORD: my-secret-pw
+        MYSQL_DATABASE: footie_testing
+        MYSQL_USER: footie_user
+        MYSQL_PASSWORD: footie_pw
 
     working_directory: ~/repo
 
