@@ -2,7 +2,9 @@
 ##Usage:
 Please checkout from github link https://github.com/nidash/thefootie
 1) Install docker if not installed already.
-2) Start up a database server, see compose file environment variables are coming and can be overridden in .env file. Currently we are using port 3306 but this can be changed.
+2) composer install
+3) Copy .env.dist to .env 
+4) Start up a database server, see compose file environment variables are coming and can be overridden in .env file. Currently we are using port 3306 but this can be changed.
    
     docker-compose up -d
    
@@ -12,10 +14,10 @@ Please checkout from github link https://github.com/nidash/thefootie
    
    If you change port numbers please change in DATABASE_URL in the .env and phpunit.xml as well. 
     
-3) Create schema like so - ./bin/console doctrine:migrations:execute 20181026113305
-4) Run fixtures - ./bin/console doctrine:fixtures:load
-5) Run server - ./bin/console server:run
-6) Use postman to try the following
+4) Create schema like so - ./bin/console doctrine:migrations:execute 20181026113305
+5) Run fixtures - ./bin/console doctrine:fixtures:load
+6) Run server - ./bin/console server:run
+7) Use postman to try the following
    
    GET /leagues - will get all leagues
    
