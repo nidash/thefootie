@@ -41,4 +41,4 @@ jobs:
     # run tests!
     - run: ./bin/console doctrine:migrations:execute 20181026113305 -n  --env=test
     - run: ./bin/console doctrine:fixtures:load -n --env=test
-    - run: ./bin/phpunit
+    - run: ./bin/phpunit -c phpunit-ci.xml
