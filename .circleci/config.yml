@@ -8,8 +8,9 @@ jobs:
     docker:
     # specify the version you desire here
     - image: circleci/php:7.2-cli
-      environment:
-        APP_ENV: test
+#      environment:
+#        APP_ENV: test
+#        DATABASE_URL: mysql://footie_user:footie_pw@127.0.0.1:3306/footie
 
     # Specify service dependencies here if necessary
     # CircleCI maintains a library of pre-built images
@@ -17,7 +18,7 @@ jobs:
     - image: circleci/mysql:5.7
       environment:
         MYSQL_ROOT_PASSWORD: my-secret-pw
-        MYSQL_DATABASE: footie_testing
+        MYSQL_DATABASE: footie
         MYSQL_USER: footie_user
         MYSQL_PASSWORD: footie_pw
 
