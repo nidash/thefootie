@@ -10,7 +10,8 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class ApiController extends Controller {
+class ApiController extends Controller
+{
 
   /**
    * @param array $data
@@ -18,11 +19,11 @@ class ApiController extends Controller {
    *
    * @return \Symfony\Component\HttpFoundation\JsonResponse
    */
-  public function sendResponse(array $data, int $status) {
-    $response = $this->json($data, $status);
-    $response->headers->set('Content-Type', 'application/json');
-    // Return JSON response.
-    return $response;
-  }
-
+    public function sendResponse(array $data, int $status)
+    {
+        $response = $this->json($data, $status);
+        $response->headers->set('Content-Type', 'application/json');
+        // Return JSON response.
+        return $response;
+    }
 }
