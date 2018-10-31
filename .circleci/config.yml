@@ -7,12 +7,17 @@ jobs:
   build:
     docker:
     # specify the version you desire here
-    - image: circleci/php:7.1-browsers
+    - image: circleci/7.2-apache-node-browsers-legacy
 
     # Specify service dependencies here if necessary
     # CircleCI maintains a library of pre-built images
     # documented at https://circleci.com/docs/2.0/circleci-images/
-    # - image: circleci/mysql:9.4
+    - image: circleci/mysql:9.4
+      environment:
+      MYSQL_ROOT_PASSWORD=my-secret-pw
+      MYSQL_DATABASE=footie_testing
+      MYSQL_USER=footie_user
+      MYSQL_PASSWORD=footie_pw
 
     working_directory: ~/repo
 
@@ -26,7 +31,7 @@ jobs:
         # fallback to using the latest cache if no exact match is found
         - v1-dependencies-
 
-    - run: composer install -n --prefer-dist
+    - run: composer install -n
 
     - save_cache:
         paths:
@@ -34,4 +39,6 @@ jobs:
         key: v1-dependencies-{{ checksum "composer.json" }}
 
     # run tests!
-    - run: phpunit
+    - run: ./bin/console doctrine:migrations:execute 20181026113305 -n
+    - run: ./bin/console doctrine:fixtures:load -n
+    - run: ./bin/phpunit
