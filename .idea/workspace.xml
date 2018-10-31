@@ -24,9 +24,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f6a76a5e-db15-40f4-b996-dbc80508a107" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.circleci/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.circleci/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -49,16 +48,18 @@
         <counts>
           <entry key="gitignore" value="1" />
           <entry key="json" value="1" />
-          <entry key="txt" value="374" />
-          <entry key="yml" value="217" />
+          <entry key="md" value="1" />
+          <entry key="txt" value="462" />
+          <entry key="yml" value="231" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Git file" value="1" />
           <entry key="JSON" value="1" />
-          <entry key="PLAIN_TEXT" value="374" />
-          <entry key="YAML" value="217" />
+          <entry key="Markdown" value="1" />
+          <entry key="PLAIN_TEXT" value="462" />
+          <entry key="YAML" value="231" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -67,6 +68,7 @@
           <entry key="env" value="1" />
           <entry key="gitignore" value="1" />
           <entry key="json" value="1" />
+          <entry key="md" value="1" />
           <entry key="xml" value="2" />
           <entry key="yaml" value="1" />
           <entry key="yml" value="2" />
@@ -77,6 +79,7 @@
           <entry key=".env file" value="2" />
           <entry key="Git file" value="1" />
           <entry key="JSON" value="1" />
+          <entry key="Markdown" value="1" />
           <entry key="XML" value="2" />
           <entry key="YAML" value="3" />
         </counts>
@@ -109,10 +112,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor>
+                <caret column="111" selection-start-column="111" selection-end-column="111" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.circleci/config.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" selection-start-line="10" selection-start-column="1" selection-end-line="12" selection-end-column="74" />
+            <state relative-caret-position="660">
+              <caret line="44" column="24" selection-start-line="44" selection-start-column="24" selection-end-line="44" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -179,6 +194,7 @@
         <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/phpunit-ci.xml" />
         <option value="$PROJECT_DIR$/.circleci/config.yml" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -339,7 +355,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1541001737161</updated>
-      <workItem from="1541001739152" duration="4789000" />
+      <workItem from="1541001739152" duration="5349000" />
     </task>
     <task id="LOCAL-00001" summary="Updated instructions.">
       <created>1541001789171</created>
@@ -418,15 +434,28 @@
       <option name="project" value="LOCAL" />
       <updated>1541006197026</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Change mysql database to footie.">
+      <created>1541006621592</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1541006621592</updated>
+    </task>
+    <task id="LOCAL-00013" summary="copy .env.dist to .env">
+      <created>1541006772710</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1541006772710</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4789000" />
+    <option name="totallyTimeSpent" value="5349000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-551" y="-1057" width="1920" height="1057" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="DB Browser" />
       <window_info id="Project Explorer" />
@@ -473,7 +502,9 @@
     <MESSAGE value="Change to run migration and fixtures in test environment." />
     <MESSAGE value="Add phpunit config for CI." />
     <MESSAGE value="remove .env file and add environment to php image." />
-    <option name="LAST_COMMIT_MESSAGE" value="remove .env file and add environment to php image." />
+    <MESSAGE value="Change mysql database to footie." />
+    <MESSAGE value="copy .env.dist to .env" />
+    <option name="LAST_COMMIT_MESSAGE" value="copy .env.dist to .env" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.gitignore">
@@ -530,8 +561,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.circleci/config.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" selection-start-line="10" selection-start-column="1" selection-end-line="12" selection-end-column="74" />
+        <state relative-caret-position="660">
+          <caret line="44" column="24" selection-start-line="44" selection-start-column="24" selection-end-line="44" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor>
+            <caret column="111" selection-start-column="111" selection-end-column="111" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>

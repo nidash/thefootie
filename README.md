@@ -1,3 +1,4 @@
+[![CircleCI](https://circleci.com/gh/nidash/thefootie.svg?style=svg)](https://circleci.com/gh/nidash/thefootie)
 ###The Footie App
 ##Usage:
 Please checkout from github link https://github.com/nidash/thefootie
