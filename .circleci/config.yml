@@ -42,7 +42,7 @@ jobs:
         key: v1-dependencies-{{ checksum "composer.json" }}
 
     # run tests!
-    - run: rm .env
+    - run: mv .env.dist .env
     - run: ./bin/console doctrine:migrations:execute 20181026113305 -n
     - run: ./bin/console doctrine:fixtures:load -n
     - run: ./bin/phpunit -c phpunit-ci.xml
