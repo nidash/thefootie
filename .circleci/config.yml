@@ -8,6 +8,8 @@ jobs:
     docker:
     # specify the version you desire here
     - image: circleci/php:7.2-cli
+      environment:
+        APP_ENV: test
 
     # Specify service dependencies here if necessary
     # CircleCI maintains a library of pre-built images
@@ -39,6 +41,7 @@ jobs:
         key: v1-dependencies-{{ checksum "composer.json" }}
 
     # run tests!
-    - run: ./bin/console doctrine:migrations:execute 20181026113305 -n  --env=test
-    - run: ./bin/console doctrine:fixtures:load -n --env=test
+    - run: rm .env
+    - run: ./bin/console doctrine:migrations:execute 20181026113305 -n
+    - run: ./bin/console doctrine:fixtures:load -n
     - run: ./bin/phpunit -c phpunit-ci.xml
