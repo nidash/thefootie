@@ -46,3 +46,4 @@ jobs:
     - run: ./bin/console doctrine:migrations:execute 20181026113305 -n
     - run: ./bin/console doctrine:fixtures:load -n
     - run: ./bin/phpunit -c phpunit-ci.xml
+    - run: ./vendor/behat/behat/bin/behat #run behat tests
