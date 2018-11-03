@@ -39,3 +39,4 @@ Please checkout from github link https://github.com/nidash/thefootie
    
 ##Notes:
 To run tests ./bin/phpunit
+To run behat tests ./vendor/behat/behat/bin/behat
