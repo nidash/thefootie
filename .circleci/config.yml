@@ -8,9 +8,6 @@ jobs:
     docker:
     # specify the version you desire here
     - image: circleci/php:7.2-cli
-#      environment:
-#        APP_ENV: test
-#        DATABASE_URL: mysql://footie_user:footie_pw@127.0.0.1:3306/footie
 
     # Specify service dependencies here if necessary
     # CircleCI maintains a library of pre-built images
@@ -46,4 +43,3 @@ jobs:
     - run: ./bin/console doctrine:migrations:execute 20181026113305 -n
     - run: ./bin/console doctrine:fixtures:load -n
     - run: ./bin/phpunit -c phpunit-ci.xml
-    - run: ./vendor/behat/behat/bin/behat #run behat tests
