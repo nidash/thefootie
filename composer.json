@@ -15,6 +15,7 @@
         "symfony/framework-bundle": "*",
         "symfony/maker-bundle": "^1.8",
         "symfony/orm-pack": "^1.0",
+        "symfony/security-bundle": "*",
         "symfony/validator": "*",
         "symfony/web-server-bundle": "*",
         "symfony/yaml": "*"
@@ -26,6 +27,8 @@
         "behat/mink-extension": "^2.1@dev",
         "behat/symfony2-extension": "2.1.5",
         "behatch/contexts": "^3.0@dev",
+        "friendsofphp/php-cs-fixer": "^2.14@dev",
+        "squizlabs/php_codesniffer": "^3.0@dev",
         "symfony/browser-kit": "*",
         "symfony/css-selector": "*",
         "symfony/dotenv": "*",

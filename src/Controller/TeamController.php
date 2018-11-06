@@ -9,11 +9,11 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class TeamController extends ApiController
 {
-
-  /**
-   * Show all entities (maybe add limit and pagination later).
-   * @Route("/teams", methods={"GET"}, name="team_index")
-   */
+    /**
+     * Show all entities (maybe add limit and pagination later).
+     *
+     * @Route("/teams", methods={"GET"}, name="team_index")
+     */
     public function list(): JsonResponse
     {
         $repository = $this->getDoctrine()->getRepository(Team::class);
@@ -24,6 +24,7 @@ class TeamController extends ApiController
 
     /**
      * Show an entity.
+     *
      * @Route("/teams/{id}", methods={"GET"}, name="team_show")
      *
      * @param int $id
@@ -48,6 +49,7 @@ class TeamController extends ApiController
 
     /**
      * Create new entity.
+     *
      * @Route("/teams", methods={"POST"}, name="team_new")
      */
     public function new()
@@ -65,11 +67,13 @@ class TeamController extends ApiController
 
     /**
      * Delete entity.
+     *
      * @Route("/teams/{id}", methods={"DELETE"}, name="team_delete")
      *
      * @param int $id
      *
      * @return \Symfony\Component\HttpFoundation\JsonResponse
+     *
      * @throws \Doctrine\ORM\ORMException
      */
     public function delete(int $id)
@@ -82,11 +86,13 @@ class TeamController extends ApiController
 
     /**
      * Update existing entity.
+     *
      * @Route("/teams/{id}", methods={"PUT|PATCH"}, name="team_edit")
      *
      * @param int $id
      *
      * @return \Symfony\Component\HttpFoundation\JsonResponse
+     *
      * @throws \Doctrine\ORM\ORMException
      */
     public function edit(int $id)

@@ -16,12 +16,12 @@ class TheFootieFixtures extends Fixture
 
         //  League.
         $league = new League();
-        $league->setName("Premier League");
+        $league->setName('Premier League');
         $manager->persist($league);
 
         // Add another league.
         $league = new League();
-        $league->setName("Sunshine League");
+        $league->setName('Sunshine League');
         $manager->persist($league);
 
         // Add Team

@@ -54,7 +54,6 @@ class TeamRepository extends ServiceEntityRepository
         return $results;
     }
 
-
     /**
      * Validate and save data to database.
      *
@@ -62,6 +61,7 @@ class TeamRepository extends ServiceEntityRepository
      * @param \App\Entity\Team $team
      *
      * @return mixed
+     *
      * @throws \Doctrine\ORM\ORMException
      * @throws \Doctrine\ORM\OptimisticLockException
      */
@@ -119,6 +119,7 @@ class TeamRepository extends ServiceEntityRepository
      * @param $id
      *
      * @return mixed
+     *
      * @throws \Doctrine\ORM\ORMException
      */
     public function delete($id)

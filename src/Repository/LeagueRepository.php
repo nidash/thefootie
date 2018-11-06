@@ -50,7 +50,6 @@ class LeagueRepository extends ServiceEntityRepository
         return $results;
     }
 
-
     /**
      * Validate and save data to database.
      *
@@ -58,6 +57,7 @@ class LeagueRepository extends ServiceEntityRepository
      * @param \App\Entity\League $league
      *
      * @return mixed
+     *
      * @throws \Doctrine\ORM\ORMException
      * @throws \Doctrine\ORM\OptimisticLockException
      */
@@ -72,7 +72,6 @@ class LeagueRepository extends ServiceEntityRepository
             // Status for created
             $response['status'] = JsonResponse::HTTP_CREATED;
         }
-
 
         $response['data'] = '';
 
@@ -115,6 +114,7 @@ class LeagueRepository extends ServiceEntityRepository
      * @param $id
      *
      * @return mixed
+     *
      * @throws \Doctrine\ORM\ORMException
      */
     public function delete($id)

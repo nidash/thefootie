@@ -5,6 +5,9 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: 'en'
+    jwt.secret_key: 'something'
+    jwt.default_algorithm: 'HS256'
+    jwt.algorithms: ['HS256']
 
 services:
     # default configuration for services in *this* file

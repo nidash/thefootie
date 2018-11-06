@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: nida.sharar
  * Date: 26/10/2018
- * Time: 13:04
+ * Time: 13:04.
  */
 
 namespace App\Controller;
@@ -15,11 +15,11 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class LeagueController extends ApiController
 {
-
-  /**
-   * Show all entities (maybe add limit and pagination later).
-   * @Route("/leagues", methods={"GET"}, name="league_index")
-   */
+    /**
+     * Show all entities (maybe add limit and pagination later).
+     *
+     * @Route("/leagues", methods={"GET"}, name="league_index")
+     */
     public function list(): JsonResponse
     {
         $repository = $this->getDoctrine()->getRepository(League::class);
@@ -30,6 +30,7 @@ class LeagueController extends ApiController
 
     /**
      * Show an entity.
+     *
      * @Route("/leagues/{id}", methods={"GET"}, name="league_show")
      *
      * @param int $id
@@ -54,6 +55,7 @@ class LeagueController extends ApiController
 
     /**
      * Create new entity.
+     *
      * @Route("/leagues", methods={"POST"}, name="league_new")
      */
     public function new()
@@ -71,11 +73,13 @@ class LeagueController extends ApiController
 
     /**
      * Delete entity.
+     *
      * @Route("/leagues/{id}", methods={"DELETE"}, name="league_delete")
      *
      * @param int $id
      *
      * @return \Symfony\Component\HttpFoundation\JsonResponse
+     *
      * @throws \Doctrine\ORM\ORMException
      */
     public function delete(int $id)
@@ -88,11 +92,13 @@ class LeagueController extends ApiController
 
     /**
      * Update existing entity.
+     *
      * @Route("/leagues/{id}", methods={"PUT|PATCH"}, name="league_edit")
      *
      * @param int $id
      *
      * @return \Symfony\Component\HttpFoundation\JsonResponse
+     *
      * @throws \Doctrine\ORM\ORMException
      */
     public function edit(int $id)
